@@ -1,0 +1,16 @@
+<% if @user.errors.any? %>
+  <%= @user.errors.full_messages %>
+  <% else %>
+    <h1>Welcome</h1>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :email%> <br>
+  <%= f.text_field :email %>
+<br>
+  <%= f.label :password%> <br>
+  <%= f.text_field :password %>
+<br>
+
+  <%= f.submit "Sign Up" %>
+<% end %>
