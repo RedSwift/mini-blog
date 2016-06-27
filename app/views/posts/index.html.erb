@@ -1,0 +1,9 @@
+<% if @username %>
+<h1>Welcome <%= @username.email %></h1>
+<%= link_to "Sign Out", sign_out_path, method: :delete %>
+<%= link_to "New Post", new_user_post_path(@username) %>
+<% else %>
+<h1>Welcome</h1>
+<%= link_to "Sign In", new_session_path %>
+<%= link_to "Sign Up", new_user_path %>
+<% end %>

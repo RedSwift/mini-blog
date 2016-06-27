@@ -9,6 +9,7 @@ RSpec.describe 'Signing up' do
   it 'lets the user sign up' do
     fill_in 'Email', with: 'hermione@hogwarts.edu'
     fill_in 'Password', with: 'super_secret'
+    fill_in 'Password confirmation', with: 'super_secret'
     click_on 'Sign Up'
 
     expect(page).to have_content('Welcome')
@@ -17,6 +18,7 @@ RSpec.describe 'Signing up' do
   it 'shows validation errors' do
     fill_in 'Email', with: 'not an email'
     fill_in 'Password', with: '123'
+    fill_in 'Password confirmation', with: '123'
     click_on 'Sign Up'
 
     expect(page).to_not have_content('Welcome')
