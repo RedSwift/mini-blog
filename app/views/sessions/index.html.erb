@@ -10,9 +10,12 @@
 <% end %>
 
 <hr>
+<div class = 'posts'>
 <% @post.each do |p| %>
-  <%= p.title %> <br>
+  <div class="post"><%= p.title %> <br>
   <%= p.body %>
-  <%= link_to "Show", user_post_path(p, p) %>
+  <%= link_to "Show", user_post_path(p.user_id, p) %>
   <hr>
+  </div>
 <% end %>
+</div>

@@ -3,9 +3,9 @@
 <% @post.each do |p| %>
 <%= p.title %> <br>
 <%= p.body %>
-<%= link_to "Show", user_post_path(p, p) %>
-<%= link_to "Destroy", user_post_path(p, p), method: :delete %>
-<%= link_to "Edit", edit_user_post_path(p, p) %>
+<%= link_to "Show", user_post_path(current_user, p) %>
+<%= link_to "Destroy", user_post_path(current_user, p), method: :delete %>
+<%= link_to "Edit", edit_user_post_path(current_user, p) %>
 <hr>
 
 <% end %>
