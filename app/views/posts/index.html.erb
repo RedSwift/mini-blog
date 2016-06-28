@@ -1,9 +1,11 @@
-<% if @username %>
-<h1>Welcome <%= @username.email %></h1>
-<%= link_to "Sign Out", sign_out_path, method: :delete %>
-<%= link_to "New Post", new_user_post_path(@username) %>
-<% else %>
-<h1>Welcome</h1>
-<%= link_to "Sign In", new_session_path %>
-<%= link_to "Sign Up", new_user_path %>
+<h1> All My Posts </h1>
+
+<% @post.each do |p| %>
+<%= p.title %> <br>
+<%= p.body %>
+<%= link_to "Show", user_post_path(p, p) %>
+<%= link_to "Destroy", user_post_path(p, p), method: :delete %>
+<%= link_to "Edit", edit_user_post_path(p, p) %>
+<hr>
+
 <% end %>

@@ -6,9 +6,9 @@ RSpec.describe 'Reading posts' do
   it 'lets visitors view posts' do
     post = user.posts.create(title: 'Post one', body: 'Body 1')
 
-    visit user_post_path(user, post)
+    visit home_path
 
-    expect(page.current_path).to eq user_post_path(user, post)
+    expect(page.current_path).to eq home_path
     expect(page).to have_content 'Post one'
     expect(page).to have_content 'Body 1'
   end

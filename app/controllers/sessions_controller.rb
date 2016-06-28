@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+  def index
+    @username = User.find_by(id: session[:user_id])
+    @post = Post.all.order(created_at: :desc)
+  end
+
   def new
   end
 
