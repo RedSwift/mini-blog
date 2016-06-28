@@ -1,14 +1,14 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user, except: [:index, :show]
-  before_action :your_post?, except: [:index, :new, :create]
+  before_action :your_post?, except: [:index, :show, :new, :create]
 
   def index
     @post = Post.all
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new

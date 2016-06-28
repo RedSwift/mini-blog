@@ -2,7 +2,7 @@
 <h1>Welcome <%= @username.email %></h1>
 <%= link_to "Sign Out", sign_out_path, method: :delete %>
 <%= link_to "New Post", new_user_post_path(@username) %>
-<%= link_to "Show", user_posts_path(@username) %>
+<%= link_to "Show My Posts", user_posts_path(@username) %>
 <% else %>
 <h1>Welcome</h1>
 <%= link_to "Sign In", new_session_path %>
@@ -13,5 +13,6 @@
 <% @post.each do |p| %>
   <%= p.title %> <br>
   <%= p.body %>
+  <%= link_to "Show", user_post_path(p, p) %>
   <hr>
 <% end %>
